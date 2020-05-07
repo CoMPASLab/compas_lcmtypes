@@ -1,0 +1,16 @@
+package senlcm;
+
+struct yun_info_t {
+    const int16_t
+        FLAG_NEW_MEASUREMENT = 1,
+        FLAG_OLD_MEASUREMENT = 0;
+
+    int64_t utime;
+
+    double ext_temp;    // [deg C]
+    double int_temp;    // [deg C]
+    double humidity; 
+    int8_t leak;   
+
+    int16_t flags;
+}

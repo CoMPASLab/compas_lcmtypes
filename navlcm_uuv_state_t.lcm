@@ -1,0 +1,18 @@
+package navlcm;
+
+struct uuv_state_t
+{
+  int64_t utime;
+
+  // vehicle state
+  position_t position;
+  double altitude;
+
+  // lat/lon origin
+  double orglat;
+  double orglon;
+
+  // leak state
+  boolean leak_state;
+  int32_t battery_percent;
+}

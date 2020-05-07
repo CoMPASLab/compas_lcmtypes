@@ -1,0 +1,9 @@
+package senlcm;
+
+struct multibeam_t {
+    int64_t utime;
+
+    int16_t  n_pings;
+    double angle_range;
+    double  pings[n_pings];
+}

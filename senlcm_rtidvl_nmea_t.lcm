@@ -1,0 +1,21 @@
+package senlcm;
+
+struct rtidvl_nmea_t
+{
+  int64_t utime;
+
+  int64_t timeStartup;      // [uSec] micro-seconds
+  int32_t sample;           // sample number
+  double  temperature;       // [C]
+
+  double  btv[4];            // x,y,z,0 [m/s] (-99.999 indicates no valid velocity)
+  double  altitude;          // Depth below transducer [m]
+
+  double  wtv[4];            // x,y,z,0 [m/s] (-99.999 indicates no valid velocity)
+  double  wtv_layer;         // Depth of water mass measurement [m]
+
+  double  bit;               // Built in test and status bits in hexadecimal (0000 = OK) 
+  int32_t subsystem;         // Sub System. See appendix B5 for description.
+  int32_t subsystem_index;   // Sub System index.
+
+}

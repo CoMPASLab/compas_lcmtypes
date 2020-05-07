@@ -1,0 +1,12 @@
+package senlcm;
+
+struct std_sensor_t {
+    const int16_t
+        FLAG_NEW_MEASUREMENT = 1,
+        FLAG_OLD_MEASUREMENT = 0;
+
+    int64_t utime;
+
+    double value;
+    int16_t flags;
+}
