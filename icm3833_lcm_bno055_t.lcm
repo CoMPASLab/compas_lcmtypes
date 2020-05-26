@@ -1,0 +1,17 @@
+package icm3833_lcm;
+
+struct bno055 {
+  int64_t utime;		// [uSec] micro-seconds
+
+  double  rph[3];		// [deg]   Euler angles (Roll, Pitch, Yaw)
+  double  quaternion[4];	// [q0;qx;qy;qz]   Quaternion angles
+
+  double angRate[3];		// [deg/s]
+  double accel[3];		// [m/s^2]
+  double magField[3];		// [microteslas]
+  
+  double gravity[3];		// [m/s^2] gravity acceleration values (i.e. without the effect of linear acceleration)
+  double lin_accel[3];		// [m/s^2] linear acceleration values (i.e. without effect of gravity)
+
+  double temperature;       // [C]
+}

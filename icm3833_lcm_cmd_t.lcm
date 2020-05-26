@@ -1,6 +1,6 @@
 package icm3833_lcm;
 
-struct Motor_t {
+struct cmd_t {
     int64_t  utime;
     int32_t  PWM[2];
 }
