@@ -1,6 +1,6 @@
 package icm3833_lcm;
 
-struct bno055 {
+struct bno055_t {
   int64_t utime;		// [uSec] micro-seconds
 
   double  rph[3];		// [deg]   Euler angles (Roll, Pitch, Yaw)
