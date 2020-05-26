@@ -1,0 +1,5 @@
+
+struct encoder_t {
+    int64_t   utime;
+    int64_t   encoder[2]; // [num pulsos]
+}

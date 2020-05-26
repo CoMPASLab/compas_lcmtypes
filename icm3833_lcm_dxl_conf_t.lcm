@@ -1,0 +1,30 @@
+struct dxl_conf_t
+{
+  const int32_t MODE_WHEEL = 1, MODE_JOINT = 2;
+
+  int64_t utime;
+
+  int16_t servo_id;
+
+  boolean set_control_mode;
+  int16_t control_mode;
+
+  boolean set_angle_limits;
+  double angle_limit_min; // In radians
+  double angle_limit_max;
+
+  // Protocol 2 exclusively
+  boolean set_velocity_limit;
+  double velocity_limit; // In rad/s
+
+  // Control 
+  boolean set_pos_control_pid;
+  double pos_control[3];
+  boolean set_vel_control_pid;
+  double vel_control[2];
+
+  // Profiles
+  boolean set_profiles;
+  int32_t vel_profile;
+  int32_t acc_profile;
+}
