@@ -1,4 +1,4 @@
-package icm3833_lcm
+package icm3833_lcm;
 
 struct abort_t
 {

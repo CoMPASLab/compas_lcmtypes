@@ -1,3 +1,5 @@
+package icm3833_lcm;
+
 struct dxl_conf_t
 {
   const int32_t MODE_WHEEL = 1, MODE_JOINT = 2;

@@ -1,3 +1,4 @@
+package icm3833_lcm;
 
 struct encoder_t {
     int64_t   utime;

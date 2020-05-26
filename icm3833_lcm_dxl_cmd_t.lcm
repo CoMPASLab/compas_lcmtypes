@@ -1,4 +1,4 @@
-package icm3833_dxl_cmd_t;
+package icm3833_lcm;
 
 struct dxl_cmd_t
 {
