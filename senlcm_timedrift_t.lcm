@@ -12,4 +12,5 @@ struct timedrift_t
     int64_t host_after;
     int64_t ticks;
     int64_t host_utime;
+    int64_t cam_utime;
 }
