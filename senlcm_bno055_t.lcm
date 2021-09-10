@@ -1,0 +1,10 @@
+package senlcm;
+
+struct bno055_t {
+  int64_t utime;		// [uSec] micro-seconds
+
+  double  rph[3];		// [deg]   Euler angles (Roll, Pitch, Yaw)
+  double angRate[3];    // [deg/s]
+  double accel[3];		// [m/s^2]
+  double magField[3];   // [microteslas]
+}
