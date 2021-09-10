@@ -7,4 +7,10 @@ struct bno055_t {
   double angRate[3];    // [deg/s]
   double accel[3];		// [m/s^2]
   double magField[3];   // [microteslas]
+
+  const int16_t
+    FLAG_NEW_MEASUREMENT = 1,
+    FLAG_OLD_MEASUREMENT = 0;
+
+  int16_t flags;
 }
