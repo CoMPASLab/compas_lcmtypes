@@ -1,0 +1,18 @@
+package senlcm;
+    struct joystick_t
+    {
+        int64_t utime;
+        boolean button_a;
+        boolean button_b;
+        boolean button_x;
+        boolean button_y;
+        boolean button_select;
+        boolean button_start;
+        boolean button_trigger_r;
+        boolean button_trigger_l;
+        double axis_r[2];
+        double axis_l[2];
+        double trigger_r;
+        double trigger_l;
+        double hats[2];
+    }
