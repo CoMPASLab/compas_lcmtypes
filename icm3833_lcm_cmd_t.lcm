@@ -1,6 +1,0 @@
-package icm3833_lcm;
-
-struct cmd_t {
-    int64_t  utime;
-    int32_t  PWM[2];
-}
