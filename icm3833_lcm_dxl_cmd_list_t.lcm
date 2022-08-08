@@ -1,7 +1,0 @@
-package icm3833_lcm;
-
-struct dxl_cmd_list_t
-{
-  int32_t len;
-  dxl_cmd_t commands[len];
-}
