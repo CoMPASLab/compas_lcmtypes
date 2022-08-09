@@ -1,6 +1,6 @@
 package senlcm;
 
-struct multibeam_t {
+struct multibeam_xy_t {
     const int8_t QUALITY_INVALID = 0;
     const int8_t QUALITY_VALID = 1;
 
