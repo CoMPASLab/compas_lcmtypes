@@ -7,5 +7,5 @@ struct relay_activation_t {
 
     int64_t utime;
 
-    int16_t cam_1, cam_2, dvl, bp_oculus;
+    int16_t cam_1, cam_2, dvl, bp_oculus, laser, led, odroid;
 }
