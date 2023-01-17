@@ -1,15 +1,11 @@
 package senlcm;
 
 struct imu_t {
-    const int16_t
-        FLAG_NEW_MEASUREMENT = 1,
-        FLAG_OLD_MEASUREMENT = 0;
 
     int64_t utime;
 
-    double rph[3];      // [rad]
-    double angRate[3];  // [rad/s]
+    double rph[3];       // [rad]
+    double angRate[3];   // [rad/s]
     double xyz_ddot[3];  // [m/s2]
 
-    int16_t flags;
 }
