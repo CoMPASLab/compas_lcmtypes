@@ -1,0 +1,20 @@
+//////////////////////////////////////////////////////////////////////////////
+// Copyright 2022  Monterey Bay Aquarium Research Institute                 //
+// Monterey Bay Aquarium Research Institute Proprietary Information.        //
+// All rights reserved.                                                     //
+//////////////////////////////////////////////////////////////////////////////
+
+package senlcm;
+
+struct header_t
+{
+    // a string that uniquely identifies the process
+    // publishing the msg ( e.g. hostname:process_name(pid) )
+    string publisher;
+
+    // epoch time in seconds
+    double timestamp;
+
+    // sequence number of published packet
+    int64_t sequence;
+}
