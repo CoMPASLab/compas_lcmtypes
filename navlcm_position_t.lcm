@@ -8,4 +8,6 @@ struct position_t
   double   xyzrph[6];        // world frame pose
   double   xyzrph_cov[36];   // world frame pose covariance matrix
 
+  double   xyzrph_dot[6];    // world frame velocities and rates 
+
 }
