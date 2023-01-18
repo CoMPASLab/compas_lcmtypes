@@ -1,9 +1,9 @@
 package senlcm;
 
-struct rph_angrate_t {
-
+struct rph_angrate_t
+{
     int64_t utime;
 
+    double rph[3];      // [rad]
     double angRate[3];  // [rad/s]
-
 }
