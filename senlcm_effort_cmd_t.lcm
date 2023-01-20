@@ -1,0 +1,22 @@
+//////////////////////////////////////////////////////////////////////////////
+// Copyright 2020  Monterey Bay Aquarium Research Institute                 //
+// Monterey Bay Aquarium Research Institute Proprietary Information.        //
+// All rights reserved.                                                     //
+//////////////////////////////////////////////////////////////////////////////
+
+package senlcm;
+
+struct effort_cmd_t
+{
+  // message header
+  header_t header;
+
+  // payload
+  double x;
+  double y;
+  double z;
+
+  double phi;
+  double theta;
+  double psi;
+}
