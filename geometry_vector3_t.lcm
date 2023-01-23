@@ -1,0 +1,12 @@
+package geometry;
+
+/* Standard message to represent a vector in free space.
+ */ 
+
+struct vector3_t
+{
+    // Vector point position as doubles.
+    double x;
+    double y;
+    double z;
+}
