@@ -1,0 +1,22 @@
+//////////////////////////////////////////////////////////////////////////////
+// Copyright 2023  Monterey Bay Aquarium Research Institute                 //
+// Monterey Bay Aquarium Research Institute Proprietary Information.        //
+// All rights reserved.                                                     //
+//////////////////////////////////////////////////////////////////////////////
+
+package navlcm;
+
+/* Standard message to report a pose with covariance.
+ */ 
+
+struct pose_t
+{
+    // Standard header.
+    header.header_t header;
+
+    // Pose as a pose structure from the geometry package.
+    geometry.pose_t pose;
+
+    // Covariance matrix.
+    double pose_covariance[36];
+}
