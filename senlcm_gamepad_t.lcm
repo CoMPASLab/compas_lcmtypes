@@ -1,18 +1,38 @@
+//////////////////////////////////////////////////////////////////////////////
+// Copyright 2023  Monterey Bay Aquarium Research Institute                 //
+// Monterey Bay Aquarium Research Institute Proprietary Information.        //
+// All rights reserved.                                                     //
+//////////////////////////////////////////////////////////////////////////////
+
 package senlcm;
-    struct gamepad_t
-    {
-        int64_t utime;
-        boolean button_a;
-        boolean button_b;
-        boolean button_x;
-        boolean button_y;
-        boolean button_select;
-        boolean button_start;
-        boolean button_trigger_r;
-        boolean button_trigger_l;
-        double axis_r[2];
-        double axis_l[2];
-        double trigger_r;
-        double trigger_l;
-        double hats[2];
-    }
+
+/* Standard message for gamepads.
+ */
+
+struct gamepad_t
+{
+    // Standard header.
+    header.header_t header;
+
+    // Button push indicator as booleans.
+    boolean button_a;
+    boolean button_b;
+    boolean button_x;
+    boolean button_y;
+    boolean button_select;
+    boolean button_start;
+    boolean button_trigger_r;
+    boolean button_trigger_l;
+
+    // Analog stick actuation as doubles.
+    double axis_r[2];
+    double axis_l[2];
+
+    // Triggers actuation as doubles.
+    double trigger_r;
+    double trigger_l;
+
+    // Hat buttons (arrows at the left in xbox and ps gamepads ) push indicator
+    // as doubles.
+    double hats[2];
+}

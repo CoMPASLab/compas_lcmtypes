@@ -1,8 +1,24 @@
+//////////////////////////////////////////////////////////////////////////////
+// Copyright 2023  Monterey Bay Aquarium Research Institute                 //
+// Monterey Bay Aquarium Research Institute Proprietary Information.        //
+// All rights reserved.                                                     //
+//////////////////////////////////////////////////////////////////////////////
+
 package senlcm;
 
-struct depth_t {
-    int64_t utime;
+/* Standard message for depth sensors.
+ */ 
 
+struct depth_t
+{
+    // Standard header.
+    header.header_t header;
+
+    // Depth.
+    // SI units = m.
     double depth;
+
+    // Pressure.
+    // SI units = mmbar.
     double pressure;
 }

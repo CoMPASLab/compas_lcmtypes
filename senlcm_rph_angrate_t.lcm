@@ -1,9 +1,25 @@
+//////////////////////////////////////////////////////////////////////////////
+// Copyright 2023  Monterey Bay Aquarium Research Institute                 //
+// Monterey Bay Aquarium Research Institute Proprietary Information.        //
+// All rights reserved.                                                     //
+//////////////////////////////////////////////////////////////////////////////
+
 package senlcm;
+
+/* Standard message to report attitude and angular rate from a inertial measurement
+ * unit (IMU).
+ */
 
 struct rph_angrate_t
 {
-    int64_t utime;
+    // Standard header.
+    header.header_t header;
 
-    double rph[3];      // [rad]
-    double angRate[3];  // [rad/s]
+    // Attitude in roll, pitch, heading convention as a list of three values.
+    // SI units = rad.
+    double rph[3];
+
+    // Angular rates as a list of three values.
+    // SI units = rad/s.
+    double angRate[3];
 }

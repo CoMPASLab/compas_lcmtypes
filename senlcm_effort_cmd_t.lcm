@@ -6,10 +6,13 @@
 
 package senlcm;
 
+/* Effort request in vehicle body frame +/- 100% in all DOF.
+ */
+
 struct effort_cmd_t
 {
-  // message header
-  header_t header;
+  // Standard header.
+  header.header_t header;
 
   // payload
   double x;
