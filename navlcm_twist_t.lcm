@@ -12,7 +12,7 @@ package navlcm;
 struct twist_t
 {
     // Standard header.
-    header.header_t header;
+    standard.header_t header;
 
     // Twist as a twist structure from the geometry package.
     geometry.twist_t twist;

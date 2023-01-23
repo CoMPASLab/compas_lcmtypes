@@ -8,7 +8,7 @@ package bot_core;
 struct image_t
 {
     // Standard header.
-    header.header_t header;
+    standard.header_t header;
 
     // Image dimensions.
     int32_t  width;

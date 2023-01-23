@@ -12,7 +12,7 @@ package senlcm;
 struct depth_t
 {
     // Standard header.
-    header.header_t header;
+    standard.header_t header;
 
     // Depth.
     // SI units = m.

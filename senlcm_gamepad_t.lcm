@@ -12,7 +12,7 @@ package senlcm;
 struct gamepad_t
 {
     // Standard header.
-    header.header_t header;
+    standard.header_t header;
 
     // Button push indicator as booleans.
     boolean button_a;

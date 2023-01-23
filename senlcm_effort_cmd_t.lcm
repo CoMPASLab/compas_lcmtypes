@@ -12,7 +12,7 @@ package senlcm;
 struct effort_cmd_t
 {
   // Standard header.
-  header.header_t header;
+  standard.header_t header;
 
   // payload
   double x;
