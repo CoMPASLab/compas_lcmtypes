@@ -4,7 +4,7 @@
 // All rights reserved.                                                     //
 //////////////////////////////////////////////////////////////////////////////
 
-package header;
+package standard;
 
 /* Standard metadata to stamp other lcmtypes given a timestamp, a sequence id
  * and coordinate frame.
