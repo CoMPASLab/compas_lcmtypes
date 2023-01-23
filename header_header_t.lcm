@@ -4,17 +4,20 @@
 // All rights reserved.                                                     //
 //////////////////////////////////////////////////////////////////////////////
 
-package senlcm;
+package header;
+
+/* Standard metadata to stamp other lcmtypes given a timestamp, a sequence id
+ * and coordinate frame.
+ */
 
 struct header_t
 {
-    // a string that uniquely identifies the process
-    // publishing the msg ( e.g. hostname:process_name(pid) )
-    string publisher;
+    // Sequence number of published packet consecutively increasing.
+    int64_t sequence;
 
-    // epoch time in seconds
+    // Epoch time in microseconds.
     double timestamp;
 
-    // sequence number of published packet
-    int64_t sequence;
+    // Frame this data is associated with.
+    string frame_id;
 }
