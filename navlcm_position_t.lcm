@@ -1,13 +1,24 @@
+//////////////////////////////////////////////////////////////////////////////
+// Copyright 2023  Monterey Bay Aquarium Research Institute                 //
+// Monterey Bay Aquarium Research Institute Proprietary Information.        //
+// All rights reserved.                                                     //
+//////////////////////////////////////////////////////////////////////////////
+
 package navlcm;
+
+/* Standard message to report XYZ cartesian position.
+ */ 
 
 struct position_t
 {
+  // Standard header.
+  header.header_t header;
 
-  int64_t  utime;
+  // XYZ cartesian position as a list of three values.
+  // SI units = m.
+  double   xyz[3];
 
-  double   xyzrph[6];        // world frame pose
-  double   xyzrph_cov[36];   // world frame pose covariance matrix
-
-  double   xyzrph_dot[6];    // world frame velocities and rates 
-
+  // XYZ cartesian position as a list of three values.
+  // SI units = m^2.
+  double   xyz_cov[9];
 }
