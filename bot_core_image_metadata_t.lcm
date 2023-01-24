@@ -1,6 +1,7 @@
 package bot_core;
 
 /* Metadata dictionary for images.
+ */
 
 struct image_metadata_t 
 {
