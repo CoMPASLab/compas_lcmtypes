@@ -1,10 +1,10 @@
 //////////////////////////////////////////////////////////////////////////////
-// Copyright 2022  Monterey Bay Aquarium Research Institute                 //
+// Copyright 2023  Monterey Bay Aquarium Research Institute                 //
 // Monterey Bay Aquarium Research Institute Proprietary Information.        //
 // All rights reserved.                                                     //
 //////////////////////////////////////////////////////////////////////////////
 
-package senlcm;
+package standard;
 
 /**
  * @brief Generic lcmtype for adding extra data to any sensor.
@@ -31,27 +31,31 @@ struct sig_double_t
     double value;
 }
 
+struct sig_string_t
+{
+    string name;
+    string value;
+}
+
 struct generic_t
 {
-    // message header
-    string publisher;
-
-    // epoch time in seconds
-    double timestamp;
-
-    // raw boxfish sentence
-    string sentence;
+    // Standard header.
+    standard.header_t header;
 
     // double type
     int16_t num_doubles;
     sig_double_t sig_doubles[num_doubles];
 
     // int type
-    int16_t num_long;
-    sig_long_t sig_longs[num_long];
+    int16_t num_longs;
+    sig_long_t sig_longs[num_longs];
 
     // bool type
     int16_t num_bools;
     sig_bool_t sig_bools[num_bools];
+
+    // string type
+    int16_t num_strings;
+    sig_string_t sig_strings[num_strings];
 }
 
