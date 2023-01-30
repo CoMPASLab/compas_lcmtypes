@@ -9,7 +9,7 @@ package senlcm;
 /* Effort request in vehicle body frame +/- 100% in all DOF.
  */
 
-struct effort_cmd_t
+struct cmd_effort_t
 {
   // Standard header.
   standard.header_t header;
