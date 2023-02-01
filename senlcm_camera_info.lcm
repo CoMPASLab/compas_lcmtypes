@@ -23,17 +23,17 @@ struct camera_info
     string distortion_model;
 
     // The distortion parameters, size depending on the distortion model.
-    int32_t D_size;
-    double[D_size] D;
+    int32_t dsize;
+    double D[dsize];
 
     // Intrinsic camera matrix for the raw (distorted) images. 3x3 row-major matrix.
-    double[9] K;
+    double K[9];
 
     // Rectification matrix (stereo cameras only). 3x3 row-major matrix.
-    double[9] R;
+    double R[9];
 
     // Projection/camera matrix. 3x4 row-major matrix.
-    double [12] P;
+    double P[12];
 
     // Binning factors
     int32_t binning_x;
@@ -41,6 +41,6 @@ struct camera_info
 
     // Region of interest parameters.
     // roi holds [x_offset, y_offset, height, width]
-    int32_t[4] roi
-    boolean roi_do_rectify
+    int32_t roi[4];
+    boolean roi_do_rectify;
 }
