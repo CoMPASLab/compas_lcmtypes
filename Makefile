@@ -30,7 +30,7 @@ jar_file:
 			  $(GEOMETRY_PACKAGE)/*.java \
 			  $(STANDARD_PACKAGE)/*.java
 
-	jar cf $(JAR_FILE) \
+	jar cf $(JAR_FILE) *.lcm \
 		   $(NAVLCM_PACKAGE)/*.class \
 		   $(SENLCM_PACKAGE)/*.class \
 		   $(BOT_CORE_PACKAGE)/*.class \
