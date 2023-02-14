@@ -8,7 +8,6 @@
 JAR_FILE = 			lcmtypes_compas.jar
 NAVLCM_PACKAGE =	navlcm
 SENLCM_PACKAGE =	senlcm
-BOT_CORE_PACKAGE =	bot_core
 GEOMETRY_PACKAGE =	geometry
 STANDARD_PACKAGE =	standard
 
@@ -26,14 +25,12 @@ jar_file:
 	javac -cp $(LCM_JAR) \
 			  $(NAVLCM_PACKAGE)/*.java \
 			  $(SENLCM_PACKAGE)/*.java \
-			  $(BOT_CORE_PACKAGE)/*.java \
 			  $(GEOMETRY_PACKAGE)/*.java \
 			  $(STANDARD_PACKAGE)/*.java
 
 	jar cf $(JAR_FILE) \
 		   $(NAVLCM_PACKAGE)/*.class \
 		   $(SENLCM_PACKAGE)/*.class \
-		   $(BOT_CORE_PACKAGE)/*.class \
 		   $(GEOMETRY_PACKAGE)/*.class \
 		   $(STANDARD_PACKAGE)/*.class
 
@@ -46,7 +43,6 @@ clean:
 	rm -rf $(JAR_FILE) \
 		   $(NAVLCM_PACKAGE) \
 		   $(SENLCM_PACKAGE) \
-		   $(BOT_CORE_PACKAGE) \
 		   $(GEOMETRY_PACKAGE) \
 		   $(STANDARD_PACKAGE)
 

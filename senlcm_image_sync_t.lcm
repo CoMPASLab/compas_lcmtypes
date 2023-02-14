@@ -1,7 +1,9 @@
-package bot_core;
+package senlcm;
 
-/* image_sync_t is used by libcam plugins to synchronize playback of a libcam
- *  log file with playback of an LCM log file.
+/* From the bot_core description:
+ *
+ * image_sync_t is used by libcam plugins to synchronize playback of a libcam
+ * log file with playback of an LCM log file.
  * 
  * The expected usage scenario is when an image stream is recorded to a libcam
  * log file, and a lcm-syncpub unit is in the libcam chain that publishes

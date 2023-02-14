@@ -1,6 +1,7 @@
-package bot_core;
+package senlcm;
 
-/* Describes an image.
+/* From the bot_core description:
+ * Describes an image.
  *  This type should be kept compatible with camlcm.image_t, as defined
  * in camunits-extra.
  */
