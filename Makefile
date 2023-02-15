@@ -52,6 +52,7 @@ python:
 .PHONY: install
 install:
 	sudo cp -i $(JAR_FILE) $(INSTALL_DIR)
+	pip install $(PYTHON_DIR)/dist/compas_lcmtypes-0.1.0+$(GIT_SHA)-py3-none-any.whl
 
 .PHONY: clean
 clean:
