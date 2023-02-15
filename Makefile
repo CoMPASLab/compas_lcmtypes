@@ -4,13 +4,19 @@
 # All rights reserved.                                                       #
 ##############################################################################
 
+GIT_SHA = $(shell git rev-parse HEAD)
+
 # files and directories
-JAR_FILE = 			lcmtypes_compas.jar
 NAVLCM_PACKAGE =	navlcm
 SENLCM_PACKAGE =	senlcm
 BOT_CORE_PACKAGE =	bot_core
 GEOMETRY_PACKAGE =	geometry
 STANDARD_PACKAGE =	standard
+
+BUILD_DIR = 	build/$(GIT_SHA)
+JAVA_DIR = 		$(BUILD_DIR)/java
+JAR_FILE = 		$(JAVA_DIR)/lcmtypes_compas.jar
+PYTHON_DIR = 	$(BUILD_DIR)/python
 
 LCM_JAR = 		/usr/local/share/java/lcm.jar
 INSTALL_DIR =	/usr/local/share/java/
@@ -18,24 +24,30 @@ INSTALL_DIR =	/usr/local/share/java/
 # tools
 
 #rules
-all: jar_file
+all: java python
 
-.PHONY: jar_file
-jar_file:
-	lcm-gen -j *.lcm
+.PHONY: java
+java:
+	lcm-gen -j *.lcm --jpath $(JAVA_DIR)
 	javac -cp $(LCM_JAR) \
-			  $(NAVLCM_PACKAGE)/*.java \
-			  $(SENLCM_PACKAGE)/*.java \
-			  $(BOT_CORE_PACKAGE)/*.java \
-			  $(GEOMETRY_PACKAGE)/*.java \
-			  $(STANDARD_PACKAGE)/*.java
+			  $(JAVA_DIR)/$(NAVLCM_PACKAGE)/*.java \
+			  $(JAVA_DIR)/$(SENLCM_PACKAGE)/*.java \
+			  $(JAVA_DIR)/$(BOT_CORE_PACKAGE)/*.java \
+			  $(JAVA_DIR)/$(GEOMETRY_PACKAGE)/*.java \
+			  $(JAVA_DIR)/$(STANDARD_PACKAGE)/*.java
 
 	jar cf $(JAR_FILE) *.lcm \
-		   $(NAVLCM_PACKAGE)/*.class \
-		   $(SENLCM_PACKAGE)/*.class \
-		   $(BOT_CORE_PACKAGE)/*.class \
-		   $(GEOMETRY_PACKAGE)/*.class \
-		   $(STANDARD_PACKAGE)/*.class
+		   $(JAVA_DIR)/$(NAVLCM_PACKAGE)/*.class \
+		   $(JAVA_DIR)/$(SENLCM_PACKAGE)/*.class \
+		   $(JAVA_DIR)/$(BOT_CORE_PACKAGE)/*.class \
+		   $(JAVA_DIR)/$(GEOMETRY_PACKAGE)/*.class \
+		   $(JAVA_DIR)/$(STANDARD_PACKAGE)/*.class
+
+.PHONY: python
+python:
+	lcm-gen -p *.lcm --ppath $(PYTHON_DIR) --package-prefix compas_lcmtypes
+	cat pyproject.toml.in | sed "s/VERSION/$(GIT_SHA)/" > $(PYTHON_DIR)/pyproject.toml
+	cd $(PYTHON_DIR) && poetry build -n --no-cache
 
 .PHONY: install
 install:
@@ -43,11 +55,6 @@ install:
 
 .PHONY: clean
 clean:
-	rm -rf $(JAR_FILE) \
-		   $(NAVLCM_PACKAGE) \
-		   $(SENLCM_PACKAGE) \
-		   $(BOT_CORE_PACKAGE) \
-		   $(GEOMETRY_PACKAGE) \
-		   $(STANDARD_PACKAGE)
+	rm -rf build
 
 
