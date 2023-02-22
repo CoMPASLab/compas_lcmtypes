@@ -5,45 +5,103 @@
 ##############################################################################
 
 # files and directories
-JAR_FILE = 			lcmtypes_compas.jar
-NAVLCM_PACKAGE =	navlcm
-SENLCM_PACKAGE =	senlcm
-GEOMETRY_PACKAGE =	geometry
-STANDARD_PACKAGE =	standard
+LCM_SRC_DIR = .
+BUILD_DIR = build
+BUILD_JAVA = $(BUILD_DIR)/java
+BUILD_CPP = $(BUILD_DIR)/cpp
+COMPAS_HEADER_DIR = /usr/local/share/compas/include
+COMPAS_JAR_DIR = /usr/local/share/java
+COMPAS_JAR = lcmtypes_compas.jar
+LCM_JAR = /usr/local/share/java/lcm.jar
 
-LCM_JAR = 		/usr/local/share/java/lcm.jar
-INSTALL_DIR =	/usr/local/share/java/
+# use make install OVERWRITE=1
+# for non-interactive install
+ifeq ($(OVERWRITE),1)
+OPT_OVWR =
+else
+OPT_OVWR = -i
+endif
+
+# Compas LCM packages
+NAVLCM_PACKAGE = navlcm
+SENLCM_PACKAGE = senlcm
+GEOMETRY_PACKAGE = geometry
+STANDARD_PACKAGE = standard
+
+# Compas LCM sources
+NAV_SRC =  $(LCM_SRC_DIR)/$(NAVLCM_PACKAGE)*lcm
+SEN_SRC =  $(LCM_SRC_DIR)/$(SENLCM_PACKAGE)*lcm
+GEO_SRC =  $(LCM_SRC_DIR)/$(GEOMETRY_PACKAGE)*lcm
+STD_SRC =  $(LCM_SRC_DIR)/$(STANDARD_PACKAGE)*lcm
+
+LCM_SRC = \
+ $(NAV_SRC) \
+ $(SEN_SRC) \
+ $(GEO_SRC) \
+ $(STD_SRC)
+
+# Compas Java sources
+JAVA_SRC = \
+ $(BUILD_JAVA)/$(NAVLCM_PACKAGE)/*.java \
+ $(BUILD_JAVA)/$(SENLCM_PACKAGE)/*.java \
+ $(BUILD_JAVA)/$(GEOMETRY_PACKAGE)/*.java \
+ $(BUILD_JAVA)/$(STANDARD_PACKAGE)/*.java
+
 
 # tools
 
 #rules
-all: jar_file
+all: build_dirs jar_file lcm_headers
 
-.PHONY: jar_file
+.PHONY:  jar_file
+
+# create missing build directories
+build_dirs:
+	@ echo checking build directories
+	@[ -d $(BUILD_DIR) ] || mkdir -p $(BUILD_DIR)
+	@[ -d $(BUILD_CPP) ] || mkdir -p $(BUILD_CPP)
+	@[ -d $(BUILD_JAVA) ] || mkdir -p $(BUILD_JAVA)
+
+# creating missing install directories
+install_dirs:
+	@ echo checking install directories
+	@[ -d $(COMPAS_HEADER_DIR) ] || mkdir -p $(COMPAS_HEADER_DIR)
+
+# generate Compas LCM jar
 jar_file:
-	lcm-gen -j *.lcm
-	javac -cp $(LCM_JAR) \
-			  $(NAVLCM_PACKAGE)/*.java \
-			  $(SENLCM_PACKAGE)/*.java \
-			  $(GEOMETRY_PACKAGE)/*.java \
-			  $(STANDARD_PACKAGE)/*.java
+	@ echo generating lcm java...
+	lcm-gen -j --jpath=$(BUILD_JAVA) $(LCM_SRC)
+	@ echo compiling java source...
+	javac -cp $(LCM_JAR) $(JAVA_SRC)
+	@ echo generating jar file
+	jar cvf $(BUILD_DIR)/$(COMPAS_JAR) -C $(BUILD_JAVA) .
 
-	jar cf $(JAR_FILE) \
-		   $(NAVLCM_PACKAGE)/*.class \
-		   $(SENLCM_PACKAGE)/*.class \
-		   $(GEOMETRY_PACKAGE)/*.class \
-		   $(STANDARD_PACKAGE)/*.class
+# generate Compass C++ headers
+lcm_headers:
+	@ echo generating lcm cpp
+	lcm-gen -x --cpp-hpath=$(BUILD_CPP) $(LCM_SRC)
 
+# install jar and headers
 .PHONY: install
-install:
-	sudo cp -i $(JAR_FILE) $(INSTALL_DIR)
+install: install_dirs
+	sudo cp $(OPT_OVWR) $(BUILD_DIR)/$(COMPAS_JAR) $(COMPAS_JAR_DIR)
+	sudo cp $(OPT_OVWR) -r $(BUILD_CPP)/$(NAVLCM_PACKAGE) $(COMPAS_HEADER_DIR)/.
+	sudo cp $(OPT_OVWR) -r $(BUILD_CPP)/$(SENLCM_PACKAGE) $(COMPAS_HEADER_DIR)/.
+	sudo cp $(OPT_OVWR) -r $(BUILD_CPP)/$(GEOMETRY_PACKAGE) $(COMPAS_HEADER_DIR)/.
+	sudo cp $(OPT_OVWR) -r $(BUILD_CPP)/$(STANDARD_PACKAGE) $(COMPAS_HEADER_DIR)/.
 
+# uninstall jar and headers
+uninstall:
+	sudo rm $(COMPAS_JAR_DIR)/$(COMPAS_JAR)
+	sudo rm -r $(COMPAS_HEADER_DIR)/$(NAVLCM_PACKAGE)
+	sudo rm -r $(COMPAS_HEADER_DIR)/$(SENLCM_PACKAGE)
+	sudo rm -r $(COMPAS_HEADER_DIR)/$(GEOMETRY_PACKAGE)
+	sudo rm -r $(COMPAS_HEADER_DIR)/$(STANDARD_PACKAGE)
+
+# clean build products
 .PHONY: clean
 clean:
-	rm -rf $(JAR_FILE) \
-		   $(NAVLCM_PACKAGE) \
-		   $(SENLCM_PACKAGE) \
-		   $(GEOMETRY_PACKAGE) \
-		   $(STANDARD_PACKAGE)
-
+	rm -rf $(BUILD_DIR)/$(COMPAS_JAR)
+	rm -rf $(BUILD_JAVA)
+	rm -rf $(BUILD_CPP)
 
