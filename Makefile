@@ -29,16 +29,11 @@ GEOMETRY_PACKAGE = geometry
 STANDARD_PACKAGE = standard
 
 # Compas LCM sources
-NAV_SRC =  $(LCM_SRC_DIR)/$(NAVLCM_PACKAGE)*lcm
-SEN_SRC =  $(LCM_SRC_DIR)/$(SENLCM_PACKAGE)*lcm
-GEO_SRC =  $(LCM_SRC_DIR)/$(GEOMETRY_PACKAGE)*lcm
-STD_SRC =  $(LCM_SRC_DIR)/$(STANDARD_PACKAGE)*lcm
-
 LCM_SRC = \
- $(NAV_SRC) \
- $(SEN_SRC) \
- $(GEO_SRC) \
- $(STD_SRC)
+$(LCM_SRC_DIR)/$(NAVLCM_PACKAGE)*lcm \
+$(LCM_SRC_DIR)/$(SENLCM_PACKAGE)*lcm \
+$(LCM_SRC_DIR)/$(GEOMETRY_PACKAGE)*lcm \
+$(LCM_SRC_DIR)/$(STANDARD_PACKAGE)*lcm
 
 # Compas Java sources
 JAVA_SRC = \
@@ -47,13 +42,12 @@ JAVA_SRC = \
  $(BUILD_JAVA)/$(GEOMETRY_PACKAGE)/*.java \
  $(BUILD_JAVA)/$(STANDARD_PACKAGE)/*.java
 
-
 # tools
 
-#rules
+# rules
 all: build_dirs jar_file lcm_headers
 
-.PHONY:  jar_file
+.PHONY: install_dirs jar_file lcm_headers
 
 # create missing build directories
 build_dirs:
@@ -82,21 +76,18 @@ lcm_headers:
 	lcm-gen -x --cpp-hpath=$(BUILD_CPP) $(LCM_SRC)
 
 # install jar and headers
-.PHONY: install
+.PHONY: install uninstall
 install: install_dirs
 	sudo cp $(OPT_OVWR) $(BUILD_DIR)/$(COMPAS_JAR) $(COMPAS_JAR_DIR)
-	sudo cp $(OPT_OVWR) -r $(BUILD_CPP)/$(NAVLCM_PACKAGE) $(COMPAS_HEADER_DIR)/.
-	sudo cp $(OPT_OVWR) -r $(BUILD_CPP)/$(SENLCM_PACKAGE) $(COMPAS_HEADER_DIR)/.
-	sudo cp $(OPT_OVWR) -r $(BUILD_CPP)/$(GEOMETRY_PACKAGE) $(COMPAS_HEADER_DIR)/.
-	sudo cp $(OPT_OVWR) -r $(BUILD_CPP)/$(STANDARD_PACKAGE) $(COMPAS_HEADER_DIR)/.
+	sudo cp $(OPT_OVWR) -r $(BUILD_CPP)/* $(COMPAS_HEADER_DIR)/.
 
 # uninstall jar and headers
 uninstall:
 	sudo rm $(COMPAS_JAR_DIR)/$(COMPAS_JAR)
-	sudo rm -r $(COMPAS_HEADER_DIR)/$(NAVLCM_PACKAGE)
-	sudo rm -r $(COMPAS_HEADER_DIR)/$(SENLCM_PACKAGE)
-	sudo rm -r $(COMPAS_HEADER_DIR)/$(GEOMETRY_PACKAGE)
-	sudo rm -r $(COMPAS_HEADER_DIR)/$(STANDARD_PACKAGE)
+	sudo rm -rf $(COMPAS_HEADER_DIR)/$(NAVLCM_PACKAGE)
+	sudo rm -rf $(COMPAS_HEADER_DIR)/$(SENLCM_PACKAGE)
+	sudo rm -rf $(COMPAS_HEADER_DIR)/$(GEOMETRY_PACKAGE)
+	sudo rm -rf $(COMPAS_HEADER_DIR)/$(STANDARD_PACKAGE)
 
 # clean build products
 .PHONY: clean
