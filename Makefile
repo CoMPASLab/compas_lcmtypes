@@ -9,6 +9,7 @@ LCM_SRC_DIR = .
 BUILD_DIR = build
 BUILD_JAVA = $(BUILD_DIR)/java
 BUILD_CPP = $(BUILD_DIR)/cpp
+BUILD_PYTHON = $(BUILD_DIR)/python
 COMPAS_HEADER_DIR = /usr/local/share/compas/include
 COMPAS_JAR_DIR = /usr/local/share/java
 COMPAS_JAR = lcmtypes_compas.jar
@@ -45,7 +46,7 @@ JAVA_SRC = \
 # tools
 
 # rules
-all: build_dirs jar_file lcm_headers
+all: build_dirs jar_file lcm_headers lcm_python
 
 .PHONY: install_dirs jar_file lcm_headers
 
@@ -55,6 +56,7 @@ build_dirs:
 	@[ -d $(BUILD_DIR) ] || mkdir -p $(BUILD_DIR)
 	@[ -d $(BUILD_CPP) ] || mkdir -p $(BUILD_CPP)
 	@[ -d $(BUILD_JAVA) ] || mkdir -p $(BUILD_JAVA)
+	@[ -d $(BUILD_PYTHON) ] || mkdir -p $(BUILD_PYTHON)
 
 # creating missing install directories
 install_dirs:
@@ -70,10 +72,12 @@ jar_file:
 	@ echo generating jar file
 	jar cvf $(BUILD_DIR)/$(COMPAS_JAR) -C $(BUILD_JAVA) .
 
-# generate Compass C++ headers
-lcm_headers:
-	@ echo generating lcm cpp
-	lcm-gen -x --cpp-hpath=$(BUILD_CPP) $(LCM_SRC)
+# generate Compas LCM python
+lcm_python:
+	@ echo generating lcm python
+	lcm-gen -p --ppath=$(BUILD_PYTHON) $(LCM_SRC)
+
+# generate Compas
 
 # install jar and headers
 .PHONY: install uninstall
@@ -95,4 +99,5 @@ clean:
 	rm -rf $(BUILD_DIR)/$(COMPAS_JAR)
 	rm -rf $(BUILD_JAVA)
 	rm -rf $(BUILD_CPP)
+	rm -rf $(BUILD_PYTHON)
 
