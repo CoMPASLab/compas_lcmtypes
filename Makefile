@@ -70,7 +70,7 @@ jar_file:
 	@ echo compiling java source...
 	javac -cp $(LCM_JAR) $(JAVA_SRC)
 	@ echo generating jar file
-	jar cvf $(BUILD_DIR)/$(COMPAS_JAR) -C $(BUILD_JAVA) .
+	jar cvf $(BUILD_DIR)/$(COMPAS_JAR) $(LCM_SRC) -C $(BUILD_JAVA) .
 
 # generate Compas LCM python
 lcm_python:
