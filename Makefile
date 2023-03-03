@@ -77,7 +77,10 @@ lcm_python:
 	@ echo generating lcm python
 	lcm-gen -p --ppath=$(BUILD_PYTHON) $(LCM_SRC)
 
-# generate Compas
+# generate Compass C++ headers
+lcm_headers:
+	@ echo generating lcm cpp
+	lcm-gen -x --cpp-hpath=$(BUILD_CPP) $(LCM_SRC)
 
 # install jar and headers
 .PHONY: install uninstall
