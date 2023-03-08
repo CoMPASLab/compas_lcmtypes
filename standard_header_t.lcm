@@ -1,9 +1,3 @@
-//////////////////////////////////////////////////////////////////////////////
-// Copyright 2022  Monterey Bay Aquarium Research Institute                 //
-// Monterey Bay Aquarium Research Institute Proprietary Information.        //
-// All rights reserved.                                                     //
-//////////////////////////////////////////////////////////////////////////////
-
 package standard;
 
 /* Standard metadata to stamp other lcmtypes given a timestamp, a sequence id

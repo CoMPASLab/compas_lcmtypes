@@ -1,9 +1,3 @@
-//////////////////////////////////////////////////////////////////////////////
-// Copyright 2023  Monterey Bay Aquarium Research Institute                 //
-// Monterey Bay Aquarium Research Institute Proprietary Information.        //
-// All rights reserved.                                                     //
-//////////////////////////////////////////////////////////////////////////////
-
 package navlcm;
 
 /* Standard message to report a pose with covariance.
