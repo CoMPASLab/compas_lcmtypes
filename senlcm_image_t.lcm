@@ -2,8 +2,6 @@ package senlcm;
 
 /* From the bot_core description:
  * Describes an image.
- *  This type should be kept compatible with camlcm.image_t, as defined
- * in camunits-extra.
  */
 
 struct image_t
