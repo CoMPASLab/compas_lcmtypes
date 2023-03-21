@@ -6,7 +6,7 @@ package senlcm;
 struct cmd_effort_t
 {
   // Standard header.
-  standard.header_t header;
+  std.header_t header;
 
   // payload
   double x;

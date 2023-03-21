@@ -6,7 +6,7 @@ package senlcm;
 struct dvl_t
 {
   // Standard header.
-  standard.header_t header;
+  std.header_t header;
 
   /* These fields contain the velocity of the vessel in relation to the bottom
    * in m/s. Positive values indicate vessel motion to the north (X), east (Y),

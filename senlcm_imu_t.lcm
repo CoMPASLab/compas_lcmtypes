@@ -6,7 +6,7 @@ package senlcm;
 struct imu_t
 {
     // Standard header.
-    standard.header_t header;
+    std.header_t header;
 
     // x, y, z, w orientation quaternion as a list of three values.
     // SI units = rad.

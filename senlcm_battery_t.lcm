@@ -6,7 +6,7 @@ package senlcm;
 struct battery_t
 {
     // Standard header.
-    standard.header_t header;
+    std.header_t header;
 
     // Voltage.
     // SI units = V.

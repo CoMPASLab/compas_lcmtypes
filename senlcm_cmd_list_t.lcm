@@ -6,7 +6,7 @@ package senlcm;
 struct cmd_list_t
 {
     // Standard header.
-    standard.header_t header;
+    std.header_t header;
 
     // Number of actuators as an ineteger.
     int32_t len;

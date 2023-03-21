@@ -9,7 +9,7 @@ package senlcm;
 struct image_t
 {
     // Standard header.
-    standard.header_t header;
+    std.header_t header;
 
     // Image dimensions.
     int32_t  width;

@@ -6,7 +6,7 @@ package senlcm;
 struct camera_info
 {
     // Standard header.
-    standard.header_t header;
+    std.header_t header;
 
     // The image dimensions with which the camera was calibrated. Normally
     // this will be the full camera resolution in pixels.

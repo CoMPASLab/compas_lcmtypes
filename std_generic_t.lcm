@@ -34,7 +34,7 @@ struct sig_string_t
 struct generic_t
 {
     // Standard header.
-    standard.header_t header;
+    std.header_t header;
 
     // double type
     int16_t num_doubles;

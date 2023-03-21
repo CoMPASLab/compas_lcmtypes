@@ -6,7 +6,7 @@ package navlcm;
 struct pose_t
 {
     // Standard header.
-    standard.header_t header;
+    std.header_t header;
 
     // Pose as a pose structure from the geometry package.
     geometry.pose_t pose;

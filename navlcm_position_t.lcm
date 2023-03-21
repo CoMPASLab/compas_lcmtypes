@@ -6,7 +6,7 @@ package navlcm;
 struct position_t
 {
   // Standard header.
-  standard.header_t header;
+  std.header_t header;
 
   // XYZ cartesian position as a list of three values.
   // SI units = m.
