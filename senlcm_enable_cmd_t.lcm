@@ -1,7 +1,0 @@
-package senlcm;
-    struct enable_cmd_t
-    {	
-        int64_t utime;
-        int16_t enable_id;
-        boolean enable_status;  
-    }

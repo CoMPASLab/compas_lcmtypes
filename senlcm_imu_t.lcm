@@ -1,15 +1,22 @@
 package senlcm;
 
-struct imu_t {
-    const int16_t
-        FLAG_NEW_MEASUREMENT = 1,
-        FLAG_OLD_MEASUREMENT = 0;
+/* Standard message for inertial measurement units (IMUs).
+ */
 
-    int64_t utime;
+struct imu_t
+{
+    // Standard header.
+    standard.header_t header;
 
-    double rph[3];      // [rad]
-    double angRate[3];  // [rad/s]
-    double xyz_ddot[3];  // [m/s2]
+    // x, y, z, w orientation quaternion as a list of three values.
+    // SI units = rad.
+    double orientation[4];       // [rad]
 
-    int16_t flags;
+    // Angular rates as a list of three values.
+    // SI units = rad/s.
+    double angRate[3];
+
+    // Linear acceleration as a list of three values.
+    // SI units = m/s^2.
+    double xyz_ddot[3];
 }

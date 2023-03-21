@@ -1,0 +1,11 @@
+package senlcm;
+
+/* Metadata dictionary for images.
+ */
+
+struct image_metadata_t 
+{
+    string key;
+    int32_t n;
+    byte value[n];
+}

@@ -1,0 +1,19 @@
+package senlcm;
+
+/* Effort request in vehicle body frame +/- 100% in all DOF.
+ */
+
+struct cmd_effort_t
+{
+  // Standard header.
+  standard.header_t header;
+
+  // payload
+  double x;
+  double y;
+  double z;
+
+  double phi;
+  double theta;
+  double psi;
+}
