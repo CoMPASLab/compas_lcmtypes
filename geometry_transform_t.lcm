@@ -1,7 +1,7 @@
 package geometry;
 
 /* Standard message to represent the transform between two coordinate frames.
- */ 
+ */
 
 struct transform_t
 {

@@ -1,7 +1,7 @@
 package senlcm;
 
 /* Standard message to send list of commands to a predefined number of actuators.
- */ 
+ */
 
 struct cmd_list_t
 {

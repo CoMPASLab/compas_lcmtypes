@@ -1,7 +1,7 @@
 package navlcm;
 
 /* Standard message to report the odometry of a system.
- */ 
+ */
 
 struct odometry_t
 {

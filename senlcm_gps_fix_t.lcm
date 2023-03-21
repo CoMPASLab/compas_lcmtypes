@@ -1,7 +1,7 @@
 package senlcm;
 
 /* Standard message for GPS fixes.
- */ 
+ */
 
 struct gps_fix_t
 {

@@ -1,7 +1,7 @@
 package senlcm;
 
 /* Standard message for depth sensors.
- */ 
+ */
 
 struct depth_t
 {

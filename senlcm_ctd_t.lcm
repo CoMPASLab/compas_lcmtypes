@@ -1,14 +1,14 @@
 package senlcm;
 
 /* Standard message for conductivity, temperature and depth (CTD) sensors.
- */ 
+ */
 
-struct ctd_t 
+struct ctd_t
 {
     // Standard header.
     standard.header_t header;
 
-    // Conductivity as a double. 
+    // Conductivity as a double.
     // SI units = Siemens/m.
     double conductivity_sm;
 
@@ -20,7 +20,7 @@ struct ctd_t
     // SI units = decibars.
     double pressure_decibar;
 
-    // Salinity as a double. 
+    // Salinity as a double.
     // SI units = psu.
     double salinity_psu;
 
