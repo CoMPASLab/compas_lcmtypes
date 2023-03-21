@@ -8,6 +8,9 @@ struct dvl_t
   // Standard header.
   std.header_t header;
 
+  // Sensor time in microseconds.
+  int64_t time_sensor;
+
   /* These fields contain the velocity of the vessel in relation to the bottom
    * in m/s. Positive values indicate vessel motion to the north (X), east (Y),
    * and up (Z). When a velocity is bad, the value is set to -32.768.
