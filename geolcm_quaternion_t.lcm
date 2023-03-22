@@ -1,0 +1,13 @@
+package geolcm;
+
+/* Standard message to represent an orientation in free space as a quaternion.
+ */
+
+struct quaternion_t
+{
+    // Orientation as a quaternion.
+    double x;
+    double y;
+    double z;
+    double w;
+}

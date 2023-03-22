@@ -1,4 +1,7 @@
-package senlcm;
+package stdlcm;
+
+/* Generic lcmtype for sending raw data.
+ */
 
 struct raw_t
 {

@@ -1,8 +1,18 @@
 package senlcm;
 
-struct depth_t {
-    int64_t utime;
+/* Standard message for depth sensors.
+ */
 
+struct depth_t
+{
+    // Standard header.
+    stdlcm.header_t header;
+
+    // Depth.
+    // SI units = m.
     double depth;
+
+    // Pressure.
+    // SI units = mmbar.
     double pressure;
 }

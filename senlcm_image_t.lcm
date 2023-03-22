@@ -1,29 +1,31 @@
-package bot_core;
+package senlcm;
 
-// Describes an image
-//
-// This type should be kept compatible with camlcm.image_t, as defined
-// in camunits-extra
+/* From the bot_core description:
+ * Describes an image.
+ */
 
 struct image_t
 {
-    // microseconds since the epoch
-    int64_t  utime;
+    // Standard header.
+    stdlcm.header_t header;
 
+    // Image dimensions.
     int32_t  width;
     int32_t  height;
     int32_t  row_stride;
 
+    // Image pixel format.
     int32_t  pixelformat;
 
+    // Image size.
     int32_t  size;
     byte     data[size];
 
-    // metadata dictionary
+    // Metadata dictionary
     int32_t nmetadata;
     image_metadata_t metadata[nmetadata];
 
-    // these values are to be kept in sync with the CamPixelFormat enumeration
+    // These values are to be kept in sync with the CamPixelFormat enumeration
     // in the Camunits library.  See camunits/pixels.h in Camunits
     const int32_t PIXEL_FORMAT_UYVY             = 1498831189;
     const int32_t PIXEL_FORMAT_YUYV             = 1448695129;

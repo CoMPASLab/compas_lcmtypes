@@ -1,8 +1,16 @@
 package senlcm;
 
+/* Standard message to send list of commands to a predefined number of actuators.
+ */
+
 struct cmd_list_t
 {
-    int64_t utime;
+    // Standard header.
+    stdlcm.header_t header;
+
+    // Number of actuators as an ineteger.
     int32_t len;
+
+    // Variable length list of commands as doubles.
     double commands[len];
 }

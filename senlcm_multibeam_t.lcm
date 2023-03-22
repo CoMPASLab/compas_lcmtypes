@@ -1,9 +1,19 @@
 package senlcm;
 
-struct multibeam_t {
-    int64_t utime;
+/* Standard message for multibeam sensors.
+ */
 
+struct multibeam_t
+{
+    // Standard header.
+    stdlcm.header_t header;
+
+    // Number of pings as an integer.
     int16_t  n_pings;
+
+    // Angle range as a double.
     double angle_range;
+
+    // Range for each of the pings as a list of n_pings elements.
     double  pings[n_pings];
 }

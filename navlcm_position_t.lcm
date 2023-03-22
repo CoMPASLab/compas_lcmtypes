@@ -1,11 +1,18 @@
 package navlcm;
 
+/* Standard message to report XYZ cartesian position.
+ */
+
 struct position_t
 {
-  int64_t  utime;
+  // Standard header.
+  stdlcm.header_t header;
 
-  double   xyzrph[6];                 //!< world frame pose
-  double   xyzrph_cov[36];
-        
-  double   xyzrph_dot[6];             //!< world frame velocities and rates    
+  // XYZ cartesian position as a list of three values.
+  // SI units = m.
+  double   xyz[3];
+
+  // XYZ cartesian position as a list of three values.
+  // SI units = m^2.
+  double   xyz_cov[9];
 }

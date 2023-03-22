@@ -1,0 +1,13 @@
+package geolcm;
+
+/* Standard message to report a twist with covariance.
+ */
+
+struct twist_with_covariance_t
+{
+    // Twist as a twist structure from the geolcm package.
+    twist_t twist;
+
+    // Covariance matrix.
+    double twist_covariance[36];
+}

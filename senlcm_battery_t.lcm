@@ -1,0 +1,25 @@
+package senlcm;
+
+/* Standard message for battery status.
+ */
+
+struct battery_t
+{
+    // Standard header.
+    stdlcm.header_t header;
+
+    // Voltage.
+    // SI units = V.
+    double voltage;
+
+    // Temperature
+    // SI units = C
+    double temperature;
+
+    // Current
+    // SI units = mA
+    double current;
+
+    // Charge Percentage
+    double charge;
+}

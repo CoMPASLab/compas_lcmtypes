@@ -1,0 +1,30 @@
+package senlcm;
+
+/* Standard message for conductivity, temperature and depth (CTD) sensors.
+ */
+
+struct ctd_t
+{
+    // Standard header.
+    stdlcm.header_t header;
+
+    // Conductivity as a double.
+    // SI units = Siemens/m.
+    double conductivity_sm;
+
+    // Temperature as a double.
+    // SI units = Celsius.
+    double temperature_degc;
+
+    // Pressure as a double.
+    // SI units = decibars.
+    double pressure_decibar;
+
+    // Salinity as a double.
+    // SI units = psu.
+    double salinity_psu;
+
+    // Sounds velocity in water as a double.
+    // SI units = m/s.
+    double sound_velocity_ms;
+}
