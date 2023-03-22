@@ -1,0 +1,26 @@
+package senlcm;
+
+/* Standard message to report AHRS data.
+ */
+
+struct ahrs_t
+{
+    // Standard header.
+    stdlcm.header_t header;
+
+    // x, y, z, w orientation quaternion as a list of three values.
+    // SI units = rad.
+    double orientation[4];
+
+    // Angular rates as a list of three values.
+    // SI units = rad/s.
+    double angRate[3];
+
+    // Linear acceleration as a list of three values.
+    // SI units = m/s^2.
+    double xyz_ddot[3];
+
+    // Magnetic field as a list of three values.
+    // SI units = G.
+    double magfield[3];
+}
