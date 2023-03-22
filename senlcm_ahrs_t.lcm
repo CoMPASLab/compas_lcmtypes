@@ -1,9 +1,9 @@
 package senlcm;
 
-/* Standard message for inertial measurement units (IMUs).
+/* Standard message to report AHRS data.
  */
 
-struct imu_t
+struct ahrs_t
 {
     // Standard header.
     stdlcm.header_t header;
@@ -19,4 +19,8 @@ struct imu_t
     // Linear acceleration as a list of three values.
     // SI units = m/s^2.
     double xyz_ddot[3];
+
+    // Magnetic field as a list of three values.
+    // SI units = G.
+    double magfield[3];
 }

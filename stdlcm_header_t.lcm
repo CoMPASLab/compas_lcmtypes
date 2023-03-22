@@ -1,4 +1,4 @@
-package standard;
+package stdlcm;
 
 /* Standard metadata to stamp other lcmtypes given a timestamp, a sequence id
  * and coordinate frame.

@@ -1,15 +1,15 @@
 package navlcm;
 
 /* Standard message to report a pose with covariance.
- */ 
+ */
 
 struct pose_t
 {
     // Standard header.
-    standard.header_t header;
+    stdlcm.header_t header;
 
-    // Pose as a pose structure from the geometry package.
-    geometry.pose_t pose;
+    // Pose as a pose structure from the geolcm package.
+    geolcm.pose_t pose;
 
     // Covariance matrix.
     double pose_covariance[36];

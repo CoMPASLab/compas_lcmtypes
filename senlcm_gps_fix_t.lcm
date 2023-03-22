@@ -1,12 +1,12 @@
 package senlcm;
 
 /* Standard message for GPS fixes.
- */ 
+ */
 
 struct gps_fix_t
 {
     // Standard header.
-    standard.header_t header;
+    stdlcm.header_t header;
 
     // Latitude.
     // SI units = degrees.
