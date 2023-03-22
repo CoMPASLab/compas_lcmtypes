@@ -6,7 +6,7 @@ package senlcm;
 struct gps_fix_t
 {
     // Standard header.
-    std.header_t header;
+    stdlcm.header_t header;
 
     // Latitude.
     // SI units = degrees.

@@ -1,7 +1,6 @@
-package std;
+package stdlcm;
 
-/*
- * Generic lcmtype for adding extra data to any sensor.
+/* Generic lcmtype for adding extra data to any sensor.
  */
 
 struct bool_entry_t
@@ -40,15 +39,15 @@ struct byte_array_entry_t
 struct msg_t
 {
     // Standard header.
-    std.header_t header;
+    stdlcm.header_t header;
 
     // bool type
     int16_t n_bools;
     bool_entry_t l_bool[n_bools];
 
     // integer type
-    int16_t n_integers;
-    integer_entry_t l_int[n_integers];
+    int16_t n_ints;
+    integer_entry_t l_int[n_ints];
 
     // double type
     int16_t n_reals;
@@ -56,9 +55,9 @@ struct msg_t
 
     // string type
     int16_t n_strings;
-    string_entry_t -_string_list[n_strings];
+    string_entry_t l_string[n_strings];
 
     // byte array type
     int16_t n_bytes;
-    byte_array_entry_t l_byte_array[n_bytes];
+    byte_array_entry_t l_bytes[n_bytes];
 }

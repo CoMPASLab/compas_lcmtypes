@@ -6,7 +6,7 @@ package navlcm;
 struct odometry_t
 {
     // Standard header.
-    std.header_t header;
+    stdlcm.header_t header;
 
     // Pose as a pose with covariance structure from the geometry package.
     geometry.pose_with_covariance_t pose;

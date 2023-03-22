@@ -6,7 +6,7 @@ package senlcm;
 struct multibeam_t
 {
     // Standard header.
-    std.header_t header;
+    stdlcm.header_t header;
 
     // Number of pings as an integer.
     int16_t  n_pings;

@@ -6,7 +6,7 @@ package senlcm;
 struct magnetometer_t
 {
     // Standard header.
-    std.header_t header;
+    stdlcm.header_t header;
 
     // Magnetic field as a list of three values.
     // SI units = G.

@@ -6,7 +6,7 @@ package senlcm;
 struct dvl_t
 {
   // Standard header.
-  std.header_t header;
+  stdlcm.header_t header;
 
   // Sensor time in microseconds.
   int64_t time_sensor;

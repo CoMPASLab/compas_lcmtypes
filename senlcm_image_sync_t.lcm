@@ -21,6 +21,9 @@ package senlcm;
 
 struct image_sync_t
 {
+    // Standard header.
+    stdlcm.header_t header;
+
     // Time since the epoch in microseconds.
     int64_t utime;
 }

@@ -6,7 +6,7 @@ package senlcm;
 struct ctd_t
 {
     // Standard header.
-    std.header_t header;
+    stdlcm.header_t header;
 
     // Conductivity as a double.
     // SI units = Siemens/m.

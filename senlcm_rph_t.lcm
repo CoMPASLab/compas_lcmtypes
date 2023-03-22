@@ -6,7 +6,7 @@ package senlcm;
 struct rph_t
 {
     // Standard header.
-    std.header_t header;
+    stdlcm.header_t header;
 
     // Attitude in roll, pitch, heading convention as a list of three values.
     // SI units = rad.
