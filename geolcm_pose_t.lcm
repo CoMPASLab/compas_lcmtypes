@@ -1,0 +1,13 @@
+package geolcm;
+
+/* Standard message to represent a pose.
+ */
+
+struct pose_t
+{
+    // Position as a point structure from the geolcm package.
+    point_t position;
+
+    // Orientation as a quaternion structure from the geolcm package.
+    quaternion_t orientation;
+}

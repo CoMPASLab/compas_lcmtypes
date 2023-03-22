@@ -1,4 +1,4 @@
-package geometry;
+package geolcm;
 
 /* Standard message to represent a vector in free space.
  */

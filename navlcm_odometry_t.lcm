@@ -8,9 +8,9 @@ struct odometry_t
     // Standard header.
     stdlcm.header_t header;
 
-    // Pose as a pose with covariance structure from the geometry package.
-    geometry.pose_with_covariance_t pose;
+    // Pose as a pose with covariance structure from the geolcm package.
+    geolcm.pose_with_covariance_t pose;
 
-    // Twist as a twist with covariance structure from the geometry package.
-    geometry.twist_with_covariance_t twist;
+    // Twist as a twist with covariance structure from the geolcm package.
+    geolcm.twist_with_covariance_t twist;
 }

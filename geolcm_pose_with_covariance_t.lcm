@@ -1,11 +1,11 @@
-package geometry;
+package geolcm;
 
 /* Standard message to represent a pose.
  */
 
 struct pose_with_covariance_t
 {
-    // Pose as a pose structure from the geometry package.
+    // Pose as a pose structure from the geolcm package.
     pose_t pose;
 
     // Covariance matrix.
