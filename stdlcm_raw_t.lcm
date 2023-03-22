@@ -1,6 +1,6 @@
 package stdlcm;
 
-/*Generic lcmtype for sending raw data.
+/* Generic lcmtype for sending raw data.
  */
 
 struct raw_t

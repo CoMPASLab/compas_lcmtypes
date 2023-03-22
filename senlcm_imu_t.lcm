@@ -10,7 +10,7 @@ struct imu_t
 
     // x, y, z, w orientation quaternion as a list of three values.
     // SI units = rad.
-    double orientation[4];       // [rad]
+    double orientation[4];
 
     // Angular rates as a list of three values.
     // SI units = rad/s.

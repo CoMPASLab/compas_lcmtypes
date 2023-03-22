@@ -13,7 +13,7 @@ struct dvl_t
 
   /* These fields contain the velocity of the vessel in relation to the bottom
    * in m/s. Positive values indicate vessel motion to the north (X), east (Y),
-   * and up (Z). When a velocity is bad, the value is set to -32.768.
+   * and down (Z). When a velocity is bad, the value is set to -32.768.
    *
    * SI units = m/s
    */
@@ -22,7 +22,7 @@ struct dvl_t
 
   /* These fields contain the velocity of the vessel in relation to the water-mass
    * reference layer in m/s. Positive values indicate vessel motion to the north
-   * (X), east (Y), and up (Z). When a velocity is bad, the value is set to -32.768.
+   * (X), east (Y), and down (Z). When a velocity is bad, the value is set to -32.768.
    *
    * SI units = m/s
    */
