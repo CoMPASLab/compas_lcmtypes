@@ -1,0 +1,22 @@
+package senlcm;
+
+/* Standard message for pressure, temperature, and humidity sensors.
+ */
+
+struct pth_t
+{
+    // Standard header.
+    stdlcm.header_t header;
+
+    // Pressure as a double.
+    // SI units = hectopascal.
+    double pressure_hpa;
+
+    // Temperature as a double.
+    // SI units = Celsius.
+    double temperature_degc;
+
+    // Humidity as a double.
+    // SI units = relative humidity, %RH
+    double humidity_rh;
+}
