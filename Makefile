@@ -9,8 +9,8 @@ GIT_SHA = $(shell git rev-parse HEAD)
 # files and directories
 NAVLCM_PACKAGE =	navlcm
 SENLCM_PACKAGE =	senlcm
-GEOMETRY_PACKAGE =	geolcm
-STANDARD_PACKAGE =	stdlcm
+GEOLCM_PACKAGE =	geolcm
+STDLCM_PACKAGE =	stdlcm
 
 BUILD_DIR = 	build/$(GIT_SHA)
 JAVA_DIR = 		$(BUILD_DIR)/java
@@ -31,14 +31,14 @@ java:
 	javac -cp $(LCM_JAR) \
 			  $(JAVA_DIR)/$(NAVLCM_PACKAGE)/*.java \
 			  $(JAVA_DIR)/$(SENLCM_PACKAGE)/*.java \
-			  $(JAVA_DIR)/$(GEOMETRY_PACKAGE)/*.java \
-			  $(JAVA_DIR)/$(STANDARD_PACKAGE)/*.java
+			  $(JAVA_DIR)/$(GEOLCM_PACKAGE)/*.java \
+			  $(JAVA_DIR)/$(STDLCM_PACKAGE)/*.java
 
 	jar cf $(JAR_FILE) *.lcm \
 		   $(JAVA_DIR)/$(NAVLCM_PACKAGE)/*.class \
 		   $(JAVA_DIR)/$(SENLCM_PACKAGE)/*.class \
-		   $(JAVA_DIR)/$(GEOMETRY_PACKAGE)/*.class \
-		   $(JAVA_DIR)/$(STANDARD_PACKAGE)/*.class
+		   $(JAVA_DIR)/$(GEOLCM_PACKAGE)/*.class \
+		   $(JAVA_DIR)/$(STDLCM_PACKAGE)/*.class
 
 .PHONY: python
 python:
