@@ -9,9 +9,8 @@ GIT_SHA = $(shell git rev-parse HEAD)
 # files and directories
 NAVLCM_PACKAGE =	navlcm
 SENLCM_PACKAGE =	senlcm
-BOT_CORE_PACKAGE =	bot_core
-GEOMETRY_PACKAGE =	geometry
-STANDARD_PACKAGE =	standard
+GEOMETRY_PACKAGE =	geolcm
+STANDARD_PACKAGE =	stdlcm
 
 BUILD_DIR = 	build/$(GIT_SHA)
 JAVA_DIR = 		$(BUILD_DIR)/java
@@ -32,14 +31,12 @@ java:
 	javac -cp $(LCM_JAR) \
 			  $(JAVA_DIR)/$(NAVLCM_PACKAGE)/*.java \
 			  $(JAVA_DIR)/$(SENLCM_PACKAGE)/*.java \
-			  $(JAVA_DIR)/$(BOT_CORE_PACKAGE)/*.java \
 			  $(JAVA_DIR)/$(GEOMETRY_PACKAGE)/*.java \
 			  $(JAVA_DIR)/$(STANDARD_PACKAGE)/*.java
 
 	jar cf $(JAR_FILE) *.lcm \
 		   $(JAVA_DIR)/$(NAVLCM_PACKAGE)/*.class \
 		   $(JAVA_DIR)/$(SENLCM_PACKAGE)/*.class \
-		   $(JAVA_DIR)/$(BOT_CORE_PACKAGE)/*.class \
 		   $(JAVA_DIR)/$(GEOMETRY_PACKAGE)/*.class \
 		   $(JAVA_DIR)/$(STANDARD_PACKAGE)/*.class
 

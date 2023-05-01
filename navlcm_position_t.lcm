@@ -1,18 +1,12 @@
-//////////////////////////////////////////////////////////////////////////////
-// Copyright 2023  Monterey Bay Aquarium Research Institute                 //
-// Monterey Bay Aquarium Research Institute Proprietary Information.        //
-// All rights reserved.                                                     //
-//////////////////////////////////////////////////////////////////////////////
-
 package navlcm;
 
 /* Standard message to report XYZ cartesian position.
- */ 
+ */
 
 struct position_t
 {
   // Standard header.
-  standard.header_t header;
+  stdlcm.header_t header;
 
   // XYZ cartesian position as a list of three values.
   // SI units = m.

@@ -1,14 +1,13 @@
-package bot_core;
+package senlcm;
 
-/* Describes an image.
- *  This type should be kept compatible with camlcm.image_t, as defined
- * in camunits-extra.
+/* From the bot_core description:
+ * Describes an image.
  */
 
 struct image_t
 {
     // Standard header.
-    standard.header_t header;
+    stdlcm.header_t header;
 
     // Image dimensions.
     int32_t  width;

@@ -1,0 +1,11 @@
+package stdlcm;
+
+/* Generic lcmtype for sending raw data.
+ */
+
+struct raw_t
+{
+    int64_t utime;
+    int32_t length;
+    byte    data[length];
+}

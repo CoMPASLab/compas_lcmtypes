@@ -1,18 +1,12 @@
-//////////////////////////////////////////////////////////////////////////////
-// Copyright 2023  Monterey Bay Aquarium Research Institute                 //
-// Monterey Bay Aquarium Research Institute Proprietary Information.        //
-// All rights reserved.                                                     //
-//////////////////////////////////////////////////////////////////////////////
-
 package senlcm;
 
 /* Standard message for battery status.
- */ 
+ */
 
 struct battery_t
 {
     // Standard header.
-    standard.header_t header;
+    stdlcm.header_t header;
 
     // Voltage.
     // SI units = V.
