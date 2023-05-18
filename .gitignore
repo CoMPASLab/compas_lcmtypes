@@ -1,8 +1,1 @@
-geolcm/
-navlcm/
-senlcm/
-stdlcm/
-c/
-cpp/
-java/
-python/
+*/*
