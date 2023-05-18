@@ -1,8 +1,2 @@
-navlcm
-senlcm
-bot_core
-geolcm
-standard
-lcmtypes_compas.jar
-c/
-cpp/
+# Ignore all directories, and all sub-directories, and it's contents:
+*/*
