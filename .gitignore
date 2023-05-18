@@ -1,8 +1,8 @@
-navlcm
-senlcm
-bot_core
-geolcm
-standard
-lcmtypes_compas.jar
+geolcm/
+navlcm/
+senlcm/
+stdlcm/
 c/
 cpp/
+java/
+python/
