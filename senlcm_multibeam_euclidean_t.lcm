@@ -25,4 +25,5 @@ struct multibeam_euclidean_t
     const int8_t DETECT_OK = 0x00;          // Beam is OK
     const int8_t DETECT_BAD_SONAR = 0x01;   // Beam is flagged as bad by the sonar.
     const int8_t DETECT_BAD_FILTER = 0x02; // Beam is flagged as bad by post-processing filter.
+    const int8_t DETECT_BAD_MANUAL = 0x04; // Beam is flagged as bad manually.
 }
