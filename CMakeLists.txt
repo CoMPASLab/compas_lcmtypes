@@ -3,7 +3,6 @@ cmake_policy(SET CMP0060 NEW)
 project(compas_lcmtypes VERSION 0.1)
 
 set(POD_NAME ${PROJECT_NAME})
-include(../compas_cmake/pods.cmake)
 
 find_package(lcm REQUIRED)
 include(${LCM_USE_FILE})
