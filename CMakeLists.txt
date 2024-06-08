@@ -71,7 +71,27 @@ set(targets ${PROJECT_NAME} ${PROJECT_NAME}-cpp)
 pods_export_targets("${targets}")
 
 if(Python3_FOUND)
-  lcm_install_python(${python_install_sources})
+  execute_process(
+    COMMAND "${Python3_EXECUTABLE}" -c "if True:
+      from distutils import sysconfig as sc
+      print(sc.get_python_lib(prefix='', plat_specific=True))"
+    OUTPUT_VARIABLE PY_DIST_PACKAGES
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+  )
+  set(PY_PACKAGE_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/${PY_DIST_PACKAGES}")
+  set(PY_PACKAGE_PATH "${PY_PACKAGE_INSTALL_DIR}/${PROJECT_NAME}")
+  pods_generate_python_dist_info(${PY_PACKAGE_INSTALL_DIR} ${PROJECT_NAME} ${PROJECT_VERSION})
+
+  lcm_install_python(
+    DESTINATION ${PY_PACKAGE_PATH}
+    ${python_install_sources})
+
+  install(
+    CODE
+      "execute_process(COMMAND ${CMAKE_COMMAND} -E touch ${PY_PACKAGE_PATH}/__init__.py)"
+  )
+
+  install(CODE "message(STATUS \"compas_lcmtypes python package added to ${PY_PACKAGE_INSTALL_DIR}\nRemember to add this directory to PYTHONPATH (source workspace setup script)\")")
 endif()
 
 if(JAVA_FOUND)
