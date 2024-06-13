@@ -75,7 +75,8 @@ if(Python3_FOUND)
   execute_process(
     COMMAND "${Python3_EXECUTABLE}" -c "if True:
       import sysconfig as sc
-      print(sc.get_path('purelib', vars={'base': '${CMAKE_INSTALL_PREFIX}', 'py_version_short': '${PY_VERSION_SHORT}'}))"
+      import os
+      print(os.path.join(sc.get_path('stdlib', vars={'installed_base': '${CMAKE_INSTALL_PREFIX}', 'py_version_short': '${PY_VERSION_SHORT}'}), 'dist-packages'))"
     OUTPUT_VARIABLE PY_WS_DIST_PACKAGES
     OUTPUT_STRIP_TRAILING_WHITESPACE
   )
