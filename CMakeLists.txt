@@ -76,12 +76,12 @@ if(Python3_FOUND)
     COMMAND "${Python3_EXECUTABLE}" -c "if True:
       import sysconfig as sc
       import os
-      print(os.path.join(sc.get_path('stdlib', vars={'installed_base': '${CMAKE_INSTALL_PREFIX}', 'py_version_short': '${PY_VERSION_SHORT}'}), 'dist-packages'))"
-    OUTPUT_VARIABLE PY_WS_DIST_PACKAGES
+      print(os.path.join(sc.get_path('stdlib', vars={'installed_base': '${CMAKE_INSTALL_PREFIX}', 'py_version_short': '${PY_VERSION_SHORT}'}), 'site-packages'))"
+    OUTPUT_VARIABLE PY_WS_SITE_PACKAGES
     OUTPUT_STRIP_TRAILING_WHITESPACE
   )
-  set(PY_PACKAGE_PATH "${PY_WS_DIST_PACKAGES}/${PROJECT_NAME}")
-  pods_generate_python_dist_info(${PY_WS_DIST_PACKAGES} ${PROJECT_NAME} ${PROJECT_VERSION})
+  set(PY_PACKAGE_PATH "${PY_WS_SITE_PACKAGES}/${PROJECT_NAME}")
+  pods_generate_python_dist_info(${PY_WS_SITE_PACKAGES} ${PROJECT_NAME} ${PROJECT_VERSION})
 
   lcm_install_python(
     DESTINATION ${PY_PACKAGE_PATH}
@@ -93,7 +93,7 @@ if(Python3_FOUND)
       "execute_process(COMMAND ${CMAKE_COMMAND} -E touch ${PY_PACKAGE_PATH}/__init__.py)"
   )
 
-  install(CODE "message(STATUS \"compas_lcmtypes python package added to ${PY_WS_DIST_PACKAGES}\nRemember to add this directory to PYTHONPATH (source workspace setup script)\")")
+  install(CODE "message(STATUS \"compas_lcmtypes python package added to ${PY_WS_SITE_PACKAGES}\nRemember to add this directory to PYTHONPATH (source workspace setup script)\")")
 endif()
 
 if(JAVA_FOUND)
