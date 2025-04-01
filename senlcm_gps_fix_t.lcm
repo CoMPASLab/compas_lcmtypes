@@ -14,7 +14,7 @@ struct gps_fix_t
 
     // Longitude.
     // SI units = degrees.
-    double longitud;
+    double longitude;
 
     // Altitude.
     // SI units = m.
