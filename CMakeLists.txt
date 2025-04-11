@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.13)
 cmake_policy(SET CMP0060 NEW)
-project(compas_lcmtypes VERSION 0.1)
+project(compas_lcmtypes VERSION 0.2.0)
 
 set(POD_NAME ${PROJECT_NAME})
 
