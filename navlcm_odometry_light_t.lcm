@@ -1,0 +1,17 @@
+package navlcm;
+
+/* Standard message to report the odometry of a system without the covariance
+   matrices
+ */
+
+struct odometry_light_t
+{
+    // Standard header.
+    stdlcm.header_t header;
+
+    // Pose as a pose structure from the geolcm package.
+    geolcm.pose_t pose;
+
+    // Twist as a twist structure from the geolcm package.
+    geolcm.twist_t twist;
+}
