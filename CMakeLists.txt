@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.13)
 cmake_policy(SET CMP0060 NEW)
-project(compas_lcmtypes VERSION 0.2.0)
+project(compas_lcmtypes VERSION 0.3.0)
 
 # Option to build the C library and generate C types (default: ON)
 option(LCMTYPES_BUILD_C "Build and install the C library and generate C types" ON)
