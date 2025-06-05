@@ -64,7 +64,7 @@ if(LCMTYPES_BUILD_C)
 endif()
 
 # Always build the C++ interface (header-only) library
-lcm_add_library(${PROJECT_NAME}-cpp CPP ${cpp_headers})
+lcm_add_library(${PROJECT_NAME}-cpp CPP ${cpp_install_headers})
 # Dummy target to ensure generating the C++ headers
 add_custom_target(force-cpp-lcmtypes ALL DEPENDS ${PROJECT_NAME}-cpp)
 target_include_directories(${PROJECT_NAME}-cpp INTERFACE
