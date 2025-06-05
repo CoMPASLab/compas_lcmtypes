@@ -57,7 +57,7 @@ endif()
 # Conditionally build the C library if LCMTYPES_BUILD_C is ON
 if(LCMTYPES_BUILD_C)
   include(GenerateExportHeader)
-  lcm_add_library(${PROJECT_NAME} C STATIC ${c_sources} ${c_headers})
+  lcm_add_library(${PROJECT_NAME} C STATIC ${c_sources} ${c_install_headers})
   generate_export_header(${PROJECT_NAME})
   target_include_directories(${PROJECT_NAME} INTERFACE
     $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>)
