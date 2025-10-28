@@ -1,0 +1,22 @@
+package navlcm;
+
+/* Message containing setpoints of different types inside lists of arbitrary size.
+ */
+
+struct setpoint_list_t
+{
+	// Standard header.
+    stdlcm.header_t header;
+
+	// List of poses
+	int16_t n_poses;
+    geolcm.pose_t poses[n_poses];
+
+	// List of twists
+	int16_t n_twists;
+	geolcm.twist_t twists[n_twists];
+
+	// List of ranges (e.g. altitudes)
+	int16_t n_ranges;
+	double ranges[n_ranges];
+}
