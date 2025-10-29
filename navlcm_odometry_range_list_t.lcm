@@ -1,9 +1,9 @@
 package navlcm;
 
-/* Message containing setpoints of different types inside lists of arbitrary size.
+/* Message containing odometry and range setpoints inside lists of arbitrary size.
  */
 
-struct setpoint_list_t
+struct odometry_range_list_t
 {
 	// Standard header.
     stdlcm.header_t header;
