@@ -1,0 +1,19 @@
+package navlcm;
+
+/* Standard message to report the odometry of a system along with a range value
+ */
+
+struct odometry_range_t
+{
+    // Standard header.
+    stdlcm.header_t header;
+
+    // Pose as a pose structure from the geolcm package.
+    geolcm.pose_t pose;
+
+    // Twist as a twist structure from the geolcm package.
+    geolcm.twist_t twist;
+
+    // Range value (e.g. altitude) as a double.
+    double range;
+}
