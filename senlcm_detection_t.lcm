@@ -1,0 +1,32 @@
+package senlcm;
+
+/* Standard message for object detections.
+ */
+
+struct detection_t
+{
+    // Standard header.
+    stdlcm.header_t header;
+
+    // Distance from left side of image to center of bounding box in normalized image coordinates (0-1).
+    double x;
+
+    // Distance from top of image to center of bounding box in normalized image coordinates (0-1).
+    double y;
+    
+    // Width of bounding box in normalized image coordinates (0-1).
+    double width;
+
+    // Height of bounding box in normalized image coordinates (0-1).
+    double height;
+
+    // Confidence of detection (0-1).
+    double confidence;
+
+    // Class ID of detected object.
+    int32_t class_id;
+
+    // Name of detected object class.
+    string class_name;
+}
+
