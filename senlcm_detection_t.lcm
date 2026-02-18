@@ -29,7 +29,7 @@ struct detection_t
 }
 
 /* All detections for one image/frame */
-struct detections_t
+struct detection_list_t
 {
     // Standard header.
     stdlcm.header_t header;
