@@ -37,4 +37,7 @@ struct detections_t
     // Array of detections.
     int32_t n_detections;
     detection_t detections[n_detections];
+
+    // Model name used for detection (e.g., "yolov5s").
+    string model_name;
 }
