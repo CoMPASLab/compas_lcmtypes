@@ -33,9 +33,12 @@ Repository = "https://github.com/CoMPASLab/compas_lcmtypes"
 requires = ["hatchling", "lcm"]
 build-backend = "hatchling.build"
 
-[tool.hatch.build]
-packages = ["compas_lcmtypes"]
-
 [tool.hatch.build.hooks.custom]
 path = "hatch_build.py"
 dependencies = ["lcm"]
+
+[tool.hatch.build.targets.wheel]
+exclude = ["*.lcm"]
+
+[tool.hatch.build.targets.sdist]
+include = ["*.lcm", "hatch_build.py", "pyproject.toml"]
