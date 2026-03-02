@@ -1,0 +1,43 @@
+package senlcm;
+
+/* Standard messages for object detections.
+ */
+
+/* Single detection primitive (no header) */
+struct detection_t
+{
+    // Distance from left side of image to center of bounding box in normalized image coordinates (0-1).
+    double x;
+
+    // Distance from top of image to center of bounding box in normalized image coordinates (0-1).
+    double y;
+    
+    // Width of bounding box in normalized image coordinates (0-1).
+    double width;
+
+    // Height of bounding box in normalized image coordinates (0-1).
+    double height;
+
+    // Confidence of detection (0-1).
+    double confidence;
+
+    // Class ID of detected object.
+    int32_t class_id;
+
+    // Name of detected object class.
+    string class_name;
+}
+
+/* All detections for one image/frame */
+struct detection_list_t
+{
+    // Standard header.
+    stdlcm.header_t header;
+
+    // Array of detections.
+    int32_t n_detections;
+    detection_t detections[n_detections];
+
+    // Model name used for detection (e.g., "yolov5s").
+    string model_name;
+}
