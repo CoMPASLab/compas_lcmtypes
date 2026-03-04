@@ -1,0 +1,40 @@
+package senlcm;
+
+/* Standard messages for markers.
+ */
+
+/* Single marker */
+struct marker_t
+{
+    // Unique ID of the marker (e.g., "M1").
+    string id;
+
+    // Name of the marker (e.g., "Station M").
+    string name;
+
+    // X position of the marker in UTM coordinates (meters).
+    double x;
+
+    // Y position of the marker in UTM coordinates (meters).
+    double y;
+
+    // Depth of the marker in meters.
+    double depth;
+
+    // Optional description of the marker.
+    string description;
+
+    // Optional timestamp representing when the marker was observed (UTC microseconds since epoch).
+    int64_t timestamp;
+
+    // Optional color for the marker (e.g., "#FF0000" for red).
+    string color;
+}
+
+/* A list of markers */
+struct marker_list_t
+{
+    // Array of markers.
+    int32_t n_markers;
+    marker_t markers[n_markers];
+}
