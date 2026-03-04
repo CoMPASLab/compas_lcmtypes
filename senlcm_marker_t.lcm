@@ -6,9 +6,6 @@ package senlcm;
 /* Single marker */
 struct marker_t
 {
-    // Unique ID of the marker (e.g., "M1").
-    string id;
-
     // Name of the marker (e.g., "Station M").
     string name;
 
