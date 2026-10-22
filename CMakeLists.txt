@@ -10,6 +10,7 @@ if(NOT DEFINED NO_COLCON)
   find_package(compas_cmake REQUIRED)
 endif()
 
+#find_package(GLib2 REQUIRED)
 find_package(lcm REQUIRED)
 include(${LCM_USE_FILE})
 
@@ -122,6 +123,22 @@ if(DEFINED NO_COLCON)
     )
 
     install(CODE "message(STATUS \"compas_lcmtypes python package added to ${PY_WS_SITE_PACKAGES}\nRemember to add this directory to PYTHONPATH (source workspace setup script)\")")
+  endif()
+else()
+  if(Python3_FOUND)
+    _ament_cmake_python_register_environment_hook()
+    lcm_install_python(
+      DESTINATION ${PYTHON_INSTALL_DIR}/${PROJECT_NAME}
+      ${python_install_sources}
+    )
+    lcm_install_python(
+      DESTINATION ${PYTHON_INSTALL_DIR}
+      ${python_install_sources}
+    )
+    install(
+      CODE
+        "execute_process(COMMAND ${CMAKE_COMMAND} -E touch ${CMAKE_INSTALL_PREFIX}/${PYTHON_INSTALL_DIR}/${PROJECT_NAME}/__init__.py)"
+    )
   endif()
 endif()
 
