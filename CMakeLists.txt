@@ -4,7 +4,7 @@ project(compas_lcmtypes VERSION 0.1)
 
 set(POD_NAME ${PROJECT_NAME})
 
-if(NOT DEFINED NO_COLCON)
+if(NOT NO_COLCON)
   message(STATUS "Colcon detected")
   find_package(ament_cmake REQUIRED)
   find_package(compas_cmake REQUIRED)
@@ -83,7 +83,7 @@ lcm_install_headers(DESTINATION include
 )
 set(all_targets ${PROJECT_NAME} ${PROJECT_NAME}-cpp)
 
-if(NOT DEFINED NO_COLCON)
+if(NOT NO_COLCON)
   install(TARGETS ${all_targets}
     EXPORT export_${PROJECT_NAME}
     ARCHIVE DESTINATION lib
@@ -93,12 +93,14 @@ if(NOT DEFINED NO_COLCON)
   )
   ament_export_targets(export_${PROJECT_NAME})
   ament_export_dependencies(compas_cmake)
+  ament_export_include_directories(include)
+
 else()
   pods_export_targets("${all_targets}")
 endif()
 
 
-if(DEFINED NO_COLCON)
+if(NO_COLCON)
   if(Python3_FOUND)
     set(PY_VERSION_SHORT "${Python3_VERSION_MAJOR}.${Python3_VERSION_MINOR}")
     execute_process(
@@ -146,6 +148,6 @@ if(JAVA_FOUND)
   install_jar(${PROJECT_NAME}-jar share/java)
 endif()
 
-if(NOT DEFINED NO_COLCON)
+if(NOT NO_COLCON)
   ament_package()
 endif()
